@@ -1,0 +1,28 @@
+{
+	"default_charset":"utf-8",
+	"date_default_timezone":"Europe/Paris",
+	"dev":{
+		"ips_allowed":["10.0.0.100"],
+		"logs_level":"1",
+		"fatal_notice":"1",
+		"smarty_debugging":false,
+		"smarty_force_compile":false,
+		"smarty_caching":"0",
+		"smarty_cache_lifetime":"86400"
+	},
+	"default":{
+		"smarty_caching":"2",
+		"smarty_cache_lifetime":"86400"
+	},
+	"database":{
+		"driver":"mysql",
+		"host":"localhost",
+		"user":"dev_panzer",
+		"password":"mkH2Ho6yoAORP0mN",
+		"dbname":"dev_panzer",
+		"prefix_table":"pz"
+	},
+	"routes":[
+		["GET",       "/", "exemple",       "index",         "index"]
+	]
+}

@@ -1,0 +1,93 @@
+[02-Jul-2019 11:08:33 Europe/Paris] HTTP/1.1 GET '/'
+Uncaught exception: 'SmartyException' with message 'Unable to load template 'file:pages/index.tpl'' and code '0'
+Stack trace:
+#0 /home/debian/vsites/panzer.lan/f/vendor/smarty/smarty/libs/sysplugins/smarty_internal_templatebase.php(232): Smarty_Internal_Template->render(false, 1)
+#1 /home/debian/vsites/panzer.lan/f/vendor/smarty/smarty/libs/sysplugins/smarty_internal_templatebase.php(134): Smarty_Internal_TemplateBase->_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#2 /home/debian/vsites/panzer.lan/f/Panzer/View.php(155): Smarty_Internal_TemplateBase->display('pages/index.tpl', NULL)
+#3 /home/debian/vsites/panzer.lan/f/App/Controllers/Exemple.php(27): Panzer\View->render(false)
+#4 [internal function]: App\Controllers\Exemple->index()
+#5 /home/debian/vsites/panzer.lan/f/Panzer/Dispatcher.php(9): call_user_func_array(Array, Array)
+#6 /home/debian/vsites/panzer.lan/f/Panzer/App.php(25): Panzer\Dispatcher->__construct()
+#7 /home/debian/vsites/panzer.lan/f/public/app.php(17): Panzer\App->__construct()
+#8 {main}
+Thrown in '/home/debian/vsites/panzer.lan/f/vendor/smarty/smarty/libs/sysplugins/smarty_internal_template.php' on line 195
+
+[02-Jul-2019 11:15:06 Europe/Paris] HTTP/1.1 GET '/'
+Uncaught exception: 'Exception' with message 'Action 'getStringStatusCode' not found on controller' and code '0'
+Stack trace:
+#0 /home/debian/vsites/panzer.lan/f/App/Controllers/Exemple.php(24): Panzer\Controller->__call('getStringStatus...', Array)
+#1 [internal function]: App\Controllers\Exemple->index()
+#2 /home/debian/vsites/panzer.lan/f/Panzer/Dispatcher.php(9): call_user_func_array(Array, Array)
+#3 /home/debian/vsites/panzer.lan/f/Panzer/App.php(25): Panzer\Dispatcher->__construct()
+#4 /home/debian/vsites/panzer.lan/f/public/app.php(17): Panzer\App->__construct()
+#5 {main}
+Thrown in '/home/debian/vsites/panzer.lan/f/Panzer/Controller.php' on line 36
+
+[02-Jul-2019 11:15:24 Europe/Paris] HTTP/1.1 GET '/'
+Uncaught exception: 'Exception' with message 'Action 'getStringStatusCode' not found on controller' and code '0'
+Stack trace:
+#0 /home/debian/vsites/panzer.lan/f/App/Controllers/Exemple.php(24): Panzer\Controller->__call('getStringStatus...', Array)
+#1 [internal function]: App\Controllers\Exemple->index()
+#2 /home/debian/vsites/panzer.lan/f/Panzer/Dispatcher.php(9): call_user_func_array(Array, Array)
+#3 /home/debian/vsites/panzer.lan/f/Panzer/App.php(25): Panzer\Dispatcher->__construct()
+#4 /home/debian/vsites/panzer.lan/f/public/app.php(17): Panzer\App->__construct()
+#5 {main}
+Thrown in '/home/debian/vsites/panzer.lan/f/Panzer/Controller.php' on line 36
+
+[02-Jul-2019 11:15:25 Europe/Paris] HTTP/1.1 GET '/'
+Uncaught exception: 'Exception' with message 'Action 'getStringStatusCode' not found on controller' and code '0'
+Stack trace:
+#0 /home/debian/vsites/panzer.lan/f/App/Controllers/Exemple.php(24): Panzer\Controller->__call('getStringStatus...', Array)
+#1 [internal function]: App\Controllers\Exemple->index()
+#2 /home/debian/vsites/panzer.lan/f/Panzer/Dispatcher.php(9): call_user_func_array(Array, Array)
+#3 /home/debian/vsites/panzer.lan/f/Panzer/App.php(25): Panzer\Dispatcher->__construct()
+#4 /home/debian/vsites/panzer.lan/f/public/app.php(17): Panzer\App->__construct()
+#5 {main}
+Thrown in '/home/debian/vsites/panzer.lan/f/Panzer/Controller.php' on line 36
+
+[02-Jul-2019 11:16:01 Europe/Paris] HTTP/1.1 GET '/'
+Uncaught exception: 'ParseError' with message 'syntax error, unexpected '->' (T_OBJECT_OPERATOR)' and code '0'
+Stack trace:
+#0 /home/debian/vsites/panzer.lan/f/vendor/composer/ClassLoader.php(301): Composer\Autoload\includeFile('/home/debian/vs...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /home/debian/vsites/panzer.lan/f/Panzer/Dispatcher.php(9): spl_autoload_call('App\\Controllers...')
+#3 /home/debian/vsites/panzer.lan/f/Panzer/App.php(25): Panzer\Dispatcher->__construct()
+#4 /home/debian/vsites/panzer.lan/f/public/app.php(17): Panzer\App->__construct()
+#5 {main}
+Thrown in '/home/debian/vsites/panzer.lan/f/App/Controllers/Exemple.php' on line 24
+
+[02-Jul-2019 11:16:23 Europe/Paris] HTTP/1.1 GET '/'
+Uncaught exception: 'ParseError' with message 'syntax error, unexpected '@', expecting ',' or ')'' and code '0'
+Stack trace:
+#0 /home/debian/vsites/panzer.lan/f/vendor/composer/ClassLoader.php(301): Composer\Autoload\includeFile('/home/debian/vs...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /home/debian/vsites/panzer.lan/f/Panzer/Dispatcher.php(9): spl_autoload_call('App\\Controllers...')
+#3 /home/debian/vsites/panzer.lan/f/Panzer/App.php(25): Panzer\Dispatcher->__construct()
+#4 /home/debian/vsites/panzer.lan/f/public/app.php(17): Panzer\App->__construct()
+#5 {main}
+Thrown in '/home/debian/vsites/panzer.lan/f/App/Controllers/Exemple.php' on line 24
+
+[02-Jul-2019 11:16:30 Europe/Paris] HTTP/1.1 GET '/'
+Uncaught exception: 'ErrorException' with message 'Missing argument 1 for Panzer\Response::setStatusCode(), called in /home/debian/vsites/panzer.lan/f/App/Controllers/Exemple.php on line 24 and defined' and code '0'
+Stack trace:
+#0 /home/debian/vsites/panzer.lan/f/Panzer/Response.php(133): Panzer\Handler->error(2, 'Missing argumen...', '/home/debian/vs...', 133, Array)
+#1 /home/debian/vsites/panzer.lan/f/App/Controllers/Exemple.php(24): Panzer\Response->setStatusCode()
+#2 [internal function]: App\Controllers\Exemple->index()
+#3 /home/debian/vsites/panzer.lan/f/Panzer/Dispatcher.php(9): call_user_func_array(Array, Array)
+#4 /home/debian/vsites/panzer.lan/f/Panzer/App.php(25): Panzer\Dispatcher->__construct()
+#5 /home/debian/vsites/panzer.lan/f/public/app.php(17): Panzer\App->__construct()
+#6 {main}
+Thrown in '/home/debian/vsites/panzer.lan/f/Panzer/Response.php' on line 133
+
+[02-Jul-2019 11:16:31 Europe/Paris] HTTP/1.1 GET '/'
+Uncaught exception: 'ErrorException' with message 'Missing argument 1 for Panzer\Response::setStatusCode(), called in /home/debian/vsites/panzer.lan/f/App/Controllers/Exemple.php on line 24 and defined' and code '0'
+Stack trace:
+#0 /home/debian/vsites/panzer.lan/f/Panzer/Response.php(133): Panzer\Handler->error(2, 'Missing argumen...', '/home/debian/vs...', 133, Array)
+#1 /home/debian/vsites/panzer.lan/f/App/Controllers/Exemple.php(24): Panzer\Response->setStatusCode()
+#2 [internal function]: App\Controllers\Exemple->index()
+#3 /home/debian/vsites/panzer.lan/f/Panzer/Dispatcher.php(9): call_user_func_array(Array, Array)
+#4 /home/debian/vsites/panzer.lan/f/Panzer/App.php(25): Panzer\Dispatcher->__construct()
+#5 /home/debian/vsites/panzer.lan/f/public/app.php(17): Panzer\App->__construct()
+#6 {main}
+Thrown in '/home/debian/vsites/panzer.lan/f/Panzer/Response.php' on line 133
+

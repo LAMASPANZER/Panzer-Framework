@@ -1,0 +1,12 @@
+# ignore node/grunt dependency directories
+/node_modules
+
+# ignore composer vendor directory
+/vendor
+# ignore log files and databases
+*.log
+
+package-lock.json
+composer.lock
+/App/Views/_compiled/*.php
+/App/Views/_cache/*.php

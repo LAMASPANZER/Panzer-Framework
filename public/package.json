@@ -1,0 +1,17 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prod": "node-sass src/scss -o dist/css --sourceMap true --output-style compressed",
+    "dev": "node-sass sass/src -o sass/dist --sourceMap true --output-style compressed -watch",
+    "scss": "node-sass src/scss -o dist/css --sourceMap true --output-style compressed",
+    "scss-watch": "node-sass sass/src -o sass/dist --sourceMap true --output-style compressed -watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
