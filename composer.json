@@ -1,0 +1,21 @@
+{
+	"name": "lamaspanzer/panzer",
+	"description": "Panzer Framework",
+	"require": {
+	    "php": "^7.0",
+	    "smarty/smarty": "~3.1",
+		"phpunit/phpunit": "^6.5"
+	    },
+    "autoload": {
+        "psr-4": {
+             "Panzer\\": "Panzer/",
+             "App\\": "App/"
+        }
+    },
+	"authors": [
+	    {
+	        "name": "Guillame GUERIN",
+	        "email": "contact@lamaspanzer.ovh"
+	    }
+	]
+}
