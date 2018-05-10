@@ -1,0 +1,125 @@
+/*
+	Navbar css
+*/
+
+.logo{
+	font-family: 'CS Regular';
+	font-size:33px;
+	letter-spacing:2px;
+	span{
+		font-size:21px;
+	}
+}
+.navbar{
+	@include box-shadow(0 1px 1px 0 rgba(0, 0, 0, 0.1));
+	border-radius: 0;
+}
+.navbar-nav{
+	margin: 0 -15px;
+}
+.navbar-default .logo{
+	color:white;
+}
+.navbar-inverse .logo{
+	color:#f1f1f1;
+	span{
+		color: $skincolor;
+	}
+}
+.navbar-default {
+	background-color: $skincolor;
+	border:0px;
+	margin:0px;
+	padding:0px 0;
+	.navbar-nav>li>a{
+		font-family: $title-font;
+		/*font-weight: 600;*/
+		text-transform: uppercase;
+		font-size:13px;
+		letter-spacing:0.5px;
+		color:white;
+		&:hover{
+			background-color: rgba(0,0,0,0.1);
+		color: $skincolor;
+		}
+	}
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+	background-color: rgba(0,0,0,0.1);
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+	background-color: rgba(0,0,0,0.1);
+}
+
+.navbar-inverse {
+	background:url('../imgs/pattern.png') repeat left top scroll;
+	background-color: #212121;
+	border: 0px;
+	margin: 0px;
+	padding: 0px 0;
+	.navbar-nav>li>a{
+		font-family: $title-font;
+		/*font-weight: 600;*/
+		text-transform: uppercase;
+		font-size:13px;
+		letter-spacing:0.5px;
+		color:#f5f5f5;
+		&:hover{
+			color:#fff;
+			background-color: rgba(0,0,0,0.1);
+		}
+	}
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+	color: #fff;
+	background-color: rgba(0,0,0,0.1);
+}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+  color: #fff;
+  background-color: rgba(0,0,0,0.1);
+}
+@media(max-width:970px){
+	.navbar-nav>li>a {
+		letter-spacing:0px !important;
+	}
+}
+@media(min-width:768px){
+	.navbar-nav>li>a {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	}
+	.navbar-right .dropdown-menu {
+		right: auto;
+		left: auto;
+	}
+	.navbar-brand{
+		height:60px;
+		line-height: 30px;
+	}
+}
+.navbar-brand>img {
+	display: block;
+	margin-top: 4px;
+}
+
+/**search form**/
+.search-toggle{
+	position: relative;
+}
+.search-form{
+	position: absolute;
+	right: 0;
+	width: 250px;
+	top: 100%;
+	display: none;
+}
+
+
+@media(max-width:767px){
+	.navbar-inverse .navbar-toggle{
+		border: 0px;
+	}
+	.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover{
+		background-color: transparent;
+	}
+}

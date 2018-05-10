@@ -1,0 +1,42 @@
+/*
+Icon boxes
+*/
+
+.blue-boxe{
+	padding: 20px 15px;
+	background-color: $skincolor;
+	@include transition(all 0.3s);
+	@include border-radius(3px);
+	box-shadow: 0 3px 5px rgba(0,0,0,.2);
+	&:hover{
+		box-shadow: 0 15px 30px rgba(0,0,0,.1);
+	}
+	i{
+		font-size: 60px;
+		margin-bottom: 15px;
+		color:#fff;
+	}
+	h3{
+		color:#fff;
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 18px;
+	}
+	p{
+		color:#fff;
+	}
+	a{
+		color:#fff;
+		font-size:13px;
+		i{
+			  font-size:13px;
+			  margin: 0;
+				 margin-left: 3px;
+		}
+		&:hover{
+			color:#fff;
+			text-decoration: underline;
+		}
+	}
+}
+

@@ -1,0 +1,31 @@
+{
+	"debug":1,
+
+	"ipsAllowedDebug":[""],
+	"database":{
+		"name":"site_panzer",
+		"host":"localhost",
+		"user":"panzer",
+		"password":"1234",
+		"prefix":"pz"
+	},
+	"routes":[
+		["GET",            "\/admin\/profil\/[i:id]",           "staff",           "index",           "admin-profil-view"],
+		["POST",           "\/admin\/category\/[i:id]\/delete", "category",        "delete",          "admin-category-delete"],
+		["GET|POST",       "\/admin\/category\/[i:id]\/edit",   "category",        "edit",            "admin-category-edit"],
+		["GET|POST",       "\/admin\/categories",               "categories",      "index",           "admin-categories-view"],
+		["GET",            "\/admin\/post\/[i:id]",             "post",            "adminindex",      "admin-post-index"],
+		["POST",           "\/admin\/post\/[i:id]",             "post",            "edit",            "admin-post-edit"],
+		["DELETE",         "\/admin\/post\/[i:id]",             "post",            "delete",          "admin-post-delete"],
+		["GET",            "\/admin\/post\/new",                "post",            "new",           	"admin-post-new"],
+		["GET",            "\/admin\/posts",                    "posts",           "index",           "admin-posts-view"],
+		["GET",            "\/admin\/option\/clearall",         "options",         "clearall",        "admin-option-clearall"],
+		["GET",            "\/admin\/options",                  "options",         "index",           "admin-options"],
+		["GET",            "\/admin\/logout",                   "staff",           "logout",          "admin-staff-logout"],
+		["GET|POST",       "\/admin\/login",                    "staff",           "login",           "admin-staff-login"],
+		["GET",            "\/admin",                           "dashboard",       "index",           "admin-dashboard"],
+		["GET",            "\/galerie.html",                    "gallery",         "index",           "gallery-view"],
+		["GET",            "\/article\/[t:name]",                        "post",            "index",           "post-view"],
+		["GET",            "\/",                                "home",            "index",           "home"]
+	]
+}

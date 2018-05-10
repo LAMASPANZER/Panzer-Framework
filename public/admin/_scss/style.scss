@@ -1,0 +1,218 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import 'compass/css3/box-shadow';
+@import 'compass/css3/border-radius';
+@import "variables";
+@import "base";
+@import "sidebar";
+@font-face {
+		font-family: 'CS Regular';
+		src: url('../../fonts/cs_regular.ttf');
+		font-weight: normal;
+		font-style: normal;
+}
+
+.page-header {
+	margin-top: 0;
+
+}
+
+/*
+	Navbar css
+*/
+
+.logo{
+	font-family: 'CS Regular';
+	font-size:33px;
+	letter-spacing:2px;
+	span{
+		font-size:21px;
+	}
+}
+.navbar{
+	@include box-shadow(0 1px 1px 0 rgba(0, 0, 0, 0.1));
+}
+.navbar-nav{
+	margin: 0 -15px;
+}
+.navbar-default .logo{
+	color:$skincolor;
+}
+.navbar-inverse .logo{
+	color:#f1f1f1;
+	span{
+		color: $skincolor;
+	}
+}
+.navbar-default {
+	background-color: white;
+	border:0px;
+	margin:0px;
+	padding:0px 0;
+	.navbar-nav>li>a{
+		/*font-weight: 600;*/
+		text-transform: uppercase;
+		font-size:13px;
+		letter-spacing:0.5px;
+		color:black;
+		&:hover{
+			background-color: rgba(0,0,0,0.1);
+		}
+	}
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+	background-color: rgba(0,0,0,0.1);
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+	background-color: rgba(0,0,0,0.1);
+}
+
+.panel-style {
+	@include border-radius(none);
+}
+.huge {
+	font-size: 40px;
+	line-height: 42px;
+}
+
+.resume-profil {
+	display: inline-block;
+	.stats {
+		text-align: center;
+		h2 {
+			margin-bottom:0;
+			font-size: 35px;
+		}
+	}
+}
+.well {
+	border: none;
+	border-radius: 0;
+}
+
+
+/* 4. Charts
+--------------------------------------------*/
+
+.templatemo-chart-box {
+	display: inline-block;
+	text-align: center;
+	padding: 20px 30px 30px 0;
+}
+
+/* 5. Preferences Form
+------------------------------------------*/
+
+#templatemo-preferences-form {
+	max-width: 960px;
+	margin-bottom: 30px;
+}
+
+/* 6. Sign in Form
+--------------------------------------------*/
+
+.templatemo-signin-form {
+	padding-top: 50px;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.form-horizontal .form-group {
+	margin-right: 0;
+	margin-left: 0;
+}
+
+/* Table
+------------------------------------------*/
+.table tbody>tr>td{
+		vertical-align: middle;
+}
+
+#templatemo_sort_btn {
+	margin-bottom: 20px;
+}
+
+/* 8. Bootstrap overrides
+----------------------------------------------*/
+
+.nav-pills > li > a, .nav-tabs > li > a, .alert, .progress, .panel, .btn, .panel-group .panel, .form-control, .modal-content, .breadcrumb {
+	border-radius: 0;
+}
+
+.list-group-item:first-child, .panel-heading {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.list-group-item:last-child {
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-control-feedback {
+	right: 15px;
+}
+
+/* 9. Maps
+------------------------------------------------------*/
+
+.jqvmap-zoomin, .jqvmap-zoomout {
+	width: 15px;
+	height: 15px;
+}
+
+.vmap {
+	height: 400px;
+}
+
+/* 10. Media Queries
+------------------------------------------------------*/
+@media screen and (min-width: 992px) {
+	.templatemo-sidebar {
+		width: 235px;
+		float: left;
+		position: relative;
+		margin-right: -100%;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.navbar-form {
+		padding: 0;
+		margin-left: 0;
+	}
+	.navbar-header {
+		float: none;
+	}
+	.navbar-toggle {
+		display: block;
+	}
+	.templatemo-sidebar {
+		border-top: 0 !important;
+		margin: 20px;
+		&.navbar-collapse {
+			&.collapse {
+				display: none !important;
+			}
+			&.in {
+				border-top: 0 !important;
+				margin: 20px;
+				position: relative;
+				overflow: hidden !important;
+				overflow-y: auto !important;
+				display: block !important;
+			}
+		}
+	}
+	.templatemo-content-wrapper {
+		float: none;
+	}
+	.templatemo-content {
+		margin: 0;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.templatemo-chart-box {
+		padding-right: 0;
+	}
+}

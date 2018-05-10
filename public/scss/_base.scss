@@ -1,0 +1,95 @@
+/*
+	Basics
+*/
+.logo{
+	color:$skincolor;
+	font-family: 'CS Regular';
+	font-size:33px;
+	letter-spacing:2px;
+	span{
+		font-size:21px;
+	}
+}
+body{
+	font-family:$base-font;
+	font-size:1.7rem;
+	font-weight: 200;
+	line-height:2.8rem;
+	margin:0;
+	background-color:#fff;
+	color:#666;
+	-webkit-font-smoothing:antialiased!important;
+}
+b, strong{
+	font-weight: 400;
+}
+a{
+	@include transition(all 0.3s);
+	/*color:black;*/
+	&:hover{
+		color:#aeaeae;
+	}
+}
+button{
+  @include transition(all 0.3s);
+  &:focus{
+	  outline: 0 !important;
+  }
+}
+a,a:hover,a:focus{
+	text-decoration: none;
+	outline: 0 !important;
+}
+button:focus{
+	outline: 0 !important;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: $title-font;
+	color:$skincolor;
+	font-weight: 200;
+	margin-top: 30px;
+	margin-bottom: 15px;
+}
+blockquote{
+	font-size: 13px;
+	h5{
+		margin-top: 10px;
+		font-weight: 600;
+		color: $skincolor;
+	}
+}
+code{
+	background-color: #f8f8f8;
+	color: #4b4b4b;
+}
+pre{
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	background-color: none;
+}
+/**spaces**/
+.space10{
+	height:10px;
+}
+.space20{
+	height:20px;
+}
+.space30{
+	height:30px;
+}
+.space40{
+	height:40px;
+}
+.space50{
+	height:50px;
+}
+.space60{
+	height:60px;
+}
+.space70{
+	height:70px;
+}
+.space80{
+	height:80px;
+}
