@@ -10,31 +10,39 @@ class View
 	private $engine;
 	private $view;
 
-	function __construct(Router $router=null)
+	function __construct()
 	{
-		if ($router)
-			self::$properties = $router->properties();
+		self::$properties = DI::get('router')->properties();
 
-		$this->engine = new Smarty();
+		$this->engine = DI::register('smarty', new Smarty);
 
-		$this->engine->debugging = (Application::getConfigs('debug')==2)?1:0;
-		$this->engine->caching = 2;
+		$this->engine->debugging = (DI::get('config')->debug()==2)?1:0;
+		$this->engine->caching = (DI::get('config')->debug())?0:2;
 
-		if (Application::getConfigs('debug'))
-			$this->engine->force_compile = 1;
+		//	$this->engine->force_compile = 1;
+
 
 		$this->engine->cache_lifetime = 86400;
 		//$this->engine->left_delimiter = '{%';
 		//$this->engine->right_delimiter = '%}';
 
-		$this->engine->setConfigDir(realpath(__DIR__).'/../App/Views')
+		$this->engine
+		->setConfigDir(realpath(__DIR__).'/../App/Views')
 		->setCacheDir(realpath(__DIR__).'/../App/Views/_cache')
 		->setTemplateDir(realpath(__DIR__).'/../App/Views')
 		->setCompileDir(realpath(__DIR__).'/../App/Views/_compiled')
+		->addPluginsDir(realpath(__DIR__).'/../App/Views/_plugins')
 		->registerClass('View',__NAMESPACE__ .'\View')
-		->registerClass('ViewDependency','\App\Scopes\ViewDependency')
-		->registerClass('ModelGlobal','\App\Scopes\ModelGlobal')
-		->configLoad('www.conf');
+		//->register_object('View',$this,array('path'))
+		->configLoad('vars.conf');
+	}
+
+	/**
+	 * @return Forward on class engine if no method in $this
+	 */
+	public function __call($method, $params)
+	{
+		return call_user_func_array([$this->engine, $method], $params);
 	}
 
 	/**
@@ -48,10 +56,15 @@ class View
 		$this->engine->registerClass($class,__NAMESPACE__ .'\\'.$namespace);
 	}
 
-
-	public function set($view=null, $index=null)
+	/**
+	 *
+	 * @param type|null $view
+	 * @param type|null $index
+	 * @return type
+	 */
+	public function use($view=null, $index=null)
 	{
-		$this->view = [(!$view)?self::$properties['route']['target']:$view, $index];
+		$this->view = [$view, $index];
 	}
 
 	/**
@@ -90,9 +103,10 @@ class View
 
 	static public function path($routeName, array $params = array(), $fqdn=false) {
 
-		if(!isset(self::$properties['namedRoutes'][$routeName])) {
+		self::$properties = DI::get('router')->properties();
+
+		if(!isset(self::$properties['namedRoutes'][$routeName]))
 			throw new \Exception("Route '{$routeName}' does not exist.");
-		}
 
 		$route = self::$properties['namedRoutes'][$routeName];
 
@@ -135,27 +149,16 @@ class View
 		if (!$cached)
 			$this->engine->caching = 0;
 
-		if (!Application::getConfigs('debug') && $trimed)
+		if (!DI::get('config')->debug() && $trimed)
 			$this->engine->loadFilter('output', 'trimwhitespace');
 
-		$this->engine->display('page.'.$this->view[0].'.tpl', $this->view[1]);
+		$this->engine->display('pages/'.$this->view[0].'.tpl', $this->view[1]);
 	}
 
-	public function renderError($status, $render=true)
+	public function renderError($code)
 	{
-		switch ($status) {
-			case 400: 	 header('HTTP/1.1 400 Bad Request');	break;
-			case 401: 	 header('HTTP/1.1 401 Auth Required');	break;
-			case 403: 	 header('HTTP/1.1 403 Forbidden');		break;
-			case 404: 	 header('HTTP/1.1 404 Not Found'); 		break;
-			case 409: 	 header('HTTP/1.1 409 Conflict');		break;
-			case 500: 	 header('HTTP/1.1 500 Internal Server Error');	break;
-		}
-
-		if (!Application::getConfigs('debug'))
-			$this->engine->loadFilter('output', 'trimwhitespace');
-
-		if ($render)
-			$this->engine->display('error.'.$status.'.tpl');
+		//if (!DI::get('config')->debug())
+		//	$this->engine->loadFilter('output', 'trimwhitespace');
+		$this->engine->display(realpath(__DIR__).'/../App/Views/_http_responses/'.$code.'.tpl','http_reponse_code_'.$code);
 	}
 }

@@ -10,24 +10,24 @@ class Router
 	private $matchTypes = array(
 		'i'  => '[0-9]++',
 		'a'  => '[0-9A-Za-z]++',
-		't'  => '[0-9A-Za-z\-]++',
+		'ad'  => '[0-9A-Za-z\-\_]++',
 		'h'  => '[0-9A-Fa-f]++',
 		'*'  => '.+?',
 		'**' => '.++',
 		''   => '[^/\.]++'
 	);
 
-	public function setBasePath($basePath) {
-		$this->basePath = $basePath;
-	}
-
-	public function addRoutes($routes){
+	public function __construct($routes){
 		if(!is_array($routes) && !$routes instanceof Traversable) {
-			throw new \Exception('Routes should be an array or an instance of Traversable');
+			throw new \Exception('Routes should be an array or an instance of traversable');
 		}
 		foreach($routes as $route) {
 			call_user_func_array(array($this, 'map'), $route);
 		}
+	}
+
+	public function setBasePath($basePath) {
+		$this->basePath = $basePath;
 	}
 
 	private function map($method, $route, $target, $action, $name) {

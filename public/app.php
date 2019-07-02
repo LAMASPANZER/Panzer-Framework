@@ -14,5 +14,5 @@
  */
 
 require_once '../vendor/autoload.php';
-new Panzer\Application;
+new Panzer\App;
 ?>

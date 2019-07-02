@@ -3,36 +3,36 @@ namespace Panzer;
 
 abstract class Controller
 {
-	private $route;
-	protected $model;
-	protected $view;
-
-	final function __construct(Router $router)
+	final public function __get($name)
 	{
-		$this->route = $router->getRoute();
-		$this->view = new View($router);
+		if (!DI::has($name)) {
 
-		if (method_exists($this, 'onConstruct'))
-			$this->OnConstruct();
-	}
+			if ($name == 'model') {
+				$className = 'App\\Models\\'.ucfirst(substr(strrchr(get_called_class(), "\\"), 1));
+				return DI::register($name, new $className);
+			}
 
-	final function __call($name, $arguments)
-	{
-		throw new \Exception("Method \"$name\" not found on controller \"".$this->route['target']."\"");
-	}
+			if ($name == 'view') {
+				return DI::register($name, new View);
+			}
 
-	final protected function loadModel()
-	{
+			if ($name == 'response') {
+				return DI::register($name, new Response);
+			}
+			throw new \Exception("'$name' not found in DI");
 
-		$className = 'App\\Models\\'.ucfirst($this->route['target']);
-		if (!class_exists($className)) {
-			throw new \Exception("Model \"$className\" not found");
 		}
-		return $this->model = new $className;
+		return DI::get($name);
 	}
 
-	final protected function Redirect($route, array $params = array())
+	final protected function helper($name)
 	{
-		header('Location: '.View::Path($route, $params));
+		$className = 'App\\Helpers\\'.ucfirst($name);
+		return new $className;
+	}
+
+	final public function __call($name, $arguments)
+	{
+		throw new \Exception("Action '$name' not found on controller");
 	}
 }
