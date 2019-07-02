@@ -2,4 +2,4 @@
 Minimal PHP Framework based on MVC
 
 ## Installation
-``~# composer install
+``~# composer install``
