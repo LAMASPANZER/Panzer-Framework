@@ -1,4 +1,5 @@
 <?php
+// Droits d'auteur (c) 2012 Danny van Kooten hi@dannyvankooten.com
 namespace Panzer;
 
 class Router

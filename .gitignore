@@ -6,5 +6,7 @@ node_modules/
 # ignore log files and databases
 *.log
 
-/App/Views/_compiled/*
-/App/Views/_cache/*
+package-lock.json
+
+/App/Views/_compiled/*.*
+/App/Views/_cache/*.*
