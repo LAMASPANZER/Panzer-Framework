@@ -63,15 +63,16 @@ class View
 	 */
 	public function use($view, $index=null)
 	{
-		if (DI::get('config'))
+		if (DI::get('config')->debug())
 			$index = 'debug-'.$index;
 		$this->view = [$view, $index];
 		return $this;
 	}
 
-	public function useCaching($bool)
+	public function useCaching($bool, $trim=true)
 	{
-		$this->engine->loadFilter('output', 'trimwhitespace');
+		if ($trim)
+			$this->engine->loadFilter('output', 'trimwhitespace');
 		$this->engine->caching = $bool;
 		return $this;
 	}
@@ -111,6 +112,7 @@ class View
 	{
 		$this->engine->clearCompiledTemplate();
 		$this->engine->clearAllCache();
+		return $this;
 	}
 
 	static public function asset($path, $forcehttps=false)
@@ -149,7 +151,6 @@ class View
 
 		return (!$fqdn)?$url:((isset($_SERVER['HTTPS']))?'https':$_SERVER['REQUEST_SCHEME']).'://'.$_SERVER['HTTP_HOST'].$url;
 	}
-
 
 	/**
 	 * Displays the template

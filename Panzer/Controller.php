@@ -12,6 +12,11 @@ abstract class Controller
 				return DI::register($name, new $className);
 			}
 
+			if ($name == 'helper') {
+				$className = 'App\\Helpers\\'.ucfirst($name);
+				return DI::register($name, new $className);
+			}
+
 			if ($name == 'view') {
 				return DI::register($name, new View);
 			}
@@ -19,20 +24,15 @@ abstract class Controller
 			if ($name == 'response') {
 				return DI::register($name, new Response);
 			}
-			throw new \Exception("'$name' not found in DI");
 
+			throw new \Exception("Properties '$name' not found in DI");
 		}
-		return DI::get($name);
-	}
 
-	final protected function helper($name)
-	{
-		$className = 'App\\Helpers\\'.ucfirst($name);
-		return new $className;
+		return DI::get($name);
 	}
 
 	final public function __call($name, $arguments)
 	{
-		throw new \Exception("Action '$name' not found on controller");
+		throw new \Exception("Method '$name' not found in controller");
 	}
 }

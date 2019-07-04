@@ -16,8 +16,10 @@ $ composer install
 edit the file ``app.json`` in App folder to setting the routes, database credentials, debug level and more.
 ## Using
 ### Routes
+
 ### Plugins
 ### Controller
+Basic Configuration
 ``` php
 namespace App\Controllers;
 

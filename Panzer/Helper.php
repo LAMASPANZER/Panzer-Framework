@@ -27,7 +27,7 @@ abstract class Helper
 			if ($name == 'response') {
 				return DI::register($name, new Response);
 			}
-			throw new \Exception("'$name' not found in DI");
+			throw new \Exception("'$name' not found in container");
 
 		}
 		return DI::get($name);

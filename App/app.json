@@ -2,7 +2,7 @@
 	"default_charset":"utf-8",
 	"date_default_timezone":"Europe/Paris",
 	"dev":{
-		"ips_allowed":["10.0.0.100"],
+		"ips_allowed":["10.0.0.10"],
 		"logs_level":"1",
 		"fatal_notice":"1",
 		"smarty_debugging":false,

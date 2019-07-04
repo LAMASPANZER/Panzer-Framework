@@ -18,19 +18,15 @@ class Config
 		throw new \Error("The key '$obj' doesn't exist in app.json,", 500);
 	}
 
-	public function getRoutes()
-	{
-		# code...
-	}
 
 	public function debug()
 	{
-		if(!isset($this->config->debug)) return false;
+		if(!isset($this->config->dev)) return false;
 
-		if ((in_array(('*'), $this->config->debug->ips_allowed)) or ($_SERVER['REMOTE_ADDR'] == '127.0.0.1'))
+		if ((in_array(('*'), $this->config->dev->ips_allowed)) or ($_SERVER['REMOTE_ADDR'] == '127.0.0.1'))
 			return true;
 		else
-			return in_array($_SERVER['REMOTE_ADDR'], $this->config->debug->ips_allowed);
+			return in_array($_SERVER['REMOTE_ADDR'], $this->config->dev->ips_allowed);
 
 	}
 }
